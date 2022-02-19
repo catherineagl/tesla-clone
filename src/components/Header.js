@@ -8,10 +8,11 @@ import { useSelector } from 'react-redux';
 function Header() {
 	const [burgerStatus, setBurgerStatus] = useState(false);
 	const cars = useSelector(selectCars);
+
 	return (
 		<Container>
 			<a href="https://www.tesla.com/">
-				<img src="/images/logo.svg" alt="logo" />
+				<img src={process.env.PUBLIC_URL + '/images/logo.svg'} alt="logo" />
 			</a>
 			<Menu>
 				{cars &&
@@ -23,7 +24,7 @@ function Header() {
 			</Menu>
 			<RightMenu>
 				<a href="#">Shop</a>
-				<a href="#">Tesla Account</a>
+				<a href="#">Account</a>
 				<CustomMenu onClick={() => setBurgerStatus(true)} />
 			</RightMenu>
 
@@ -83,7 +84,7 @@ const Menu = styled.div`
 		flex-wrap: nowrap;
 	}
 
-	@media (max-width: 768px) {
+	@media (max-width: 1064px) {
 		display: none;
 	}
 `;

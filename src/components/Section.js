@@ -23,7 +23,11 @@ function Section({
 						<LeftButton>{leftBtnText}</LeftButton>
 						{rightBtnText && <RightButton>{rightBtnText}</RightButton>}
 					</ButtonGroup>
-					<DownArrow src="/images/down-arrow.svg"></DownArrow>
+
+					<DownArrow
+						src={process.env.PUBLIC_URL + '/images/down-arrow.svg'}
+						alt=""
+					></DownArrow>
 				</Buttons>
 			</Fade>
 		</Wrap>
@@ -45,7 +49,8 @@ const Wrap = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	text-align: center;
-	background-image: ${(props) => `url('/images/${props.bgImage}')`};
+	background-image: ${(props) =>
+		`url('${process.env.PUBLIC_URL}/images/${props.bgImage}')`};
 `;
 
 const ItemText = styled.div`
@@ -86,6 +91,7 @@ const RightButton = styled(LeftButton)`
 
 const DownArrow = styled.img`
 	height: 40px;
+	cursor: pointer;
 	overflow-x: hidden;
 	animation: animateDown infinite 1.5s;
 `;
